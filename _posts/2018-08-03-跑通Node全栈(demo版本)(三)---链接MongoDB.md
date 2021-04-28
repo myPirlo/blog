@@ -1,23 +1,22 @@
 ---
 layout: post
 title: "跑通Node全栈(demo版本)(三)---链接MongoDB"
-date: 2018-8-03 
+date: 2018-8-03
 description: "跑通Node全栈(demo版本)(三)---链接MongoDB"
-tag: Vue
----   
-   
+tag: Vue2
+---
 
-  上一章我们已经利用express写一个基础的路由,本章我们教大家如何用express链接mongodb数据库。
+上一章我们已经利用 express 写一个基础的路由,本章我们教大家如何用 express 链接 mongodb 数据库。
 
-### 1.安装mongoDB并编写数据库操作逻辑
+### 1.安装 mongoDB 并编写数据库操作逻辑
 
-* 做后台怎能离得开数据库呢,首先我们需要使用npm install  mongodb  --save  这条指令安装mongodb
+- 做后台怎能离得开数据库呢,首先我们需要使用 npm install mongodb --save 这条指令安装 mongodb
 
 ```
     npm install  mongodb  --save
 ```
 
-* 在项目根目录下创建操作数据库的操作文件,并编写数据库增删改查的业务逻辑,在此贴出代码
+- 在项目根目录下创建操作数据库的操作文件,并编写数据库增删改查的业务逻辑,在此贴出代码
 
   ![](/images/posts/vue/14.png)
 
@@ -35,7 +34,7 @@ tag: Vue
               }else{
                 callback(result);
               }
-              client.close();	
+              client.close();
       })
     }
     //删除数据
@@ -43,10 +42,10 @@ tag: Vue
       collection.remove(data,function(err,result){
                   if(err){
                 console.log("删除操作失败")
-              }else{ 	    
-                callback(result);   
+              }else{
+                callback(result);
               }
-              client.close();	
+              client.close();
       })
     }
     //修改数据
@@ -54,10 +53,10 @@ tag: Vue
       collection.updateOne(data[0],data[1],function(err,result){
                   if(err){
                 console.log("修改操作失败")
-              }else{ 
+              }else{
                 callback(result)
               }
-              client.close();	
+              client.close();
       })
     }
     //查询数据
@@ -68,7 +67,7 @@ tag: Vue
               }else{
                 callback(result)
               }
-              client.close();			
+              client.close();
       })
     }
 
@@ -89,23 +88,26 @@ tag: Vue
           var collection=db.collection(collections);
           console.log("数据库链接成功!数据库名: "+db.s.databaseName+" 集合名: "+collection.s.name);
             methodType[type](collection,data,callback,client);
-          
+
         }
       })
     }
 ```
 
-* 注:我这里的mongo端口号是27017,数据库名称为studentManger,查询的集合名为student,可自行修改
+- 注:我这里的 mongo 端口号是 27017,数据库名称为 studentManger,查询的集合名为 student,可自行修改
 
-### 2.测试连接是否成功 
+### 2.测试连接是否成功
 
-* 接着我们在index.js中编写一个测试接口,用来显示studentManger中的数据,以测试访问是否成功。注：这里studentManger中的数据需要自行添加,本文不介绍mongoDB的基本语法。另外测试的时候大家只需要录入任意数据结构的信息。具体学生管理系统的数据结构会在后续贴出。
+- 接着我们在 index.js 中编写一个测试接口,用来显示 studentManger 中的数据,以测试访问是否成功。注：这里 studentManger 中的数据需要自行添加,本文不介绍 mongoDB 的基本语法。另外测试的时候大家只需要录入任意数据结构的信息。具体学生管理系统的数据结构会在后续贴出。
 
-(1)首先,我们需要在index.js中引入db-min-pro.js中暴露出来数据库的操作句柄
+(1)首先,我们需要在 index.js 中引入 db-min-pro.js 中暴露出来数据库的操作句柄
+
 ```
    var DBHandler=require("../db-min-pro.js")
 ```
-(2)接着编写路由,使用DBHandler查询数据
+
+(2)接着编写路由,使用 DBHandler 查询数据
+
 ```
     router.get('/testDB', function(req, res, next) {
       DBHandler("find","student",{},function(result){
@@ -113,19 +115,19 @@ tag: Vue
       })
     });
 ```
+
 (3)重启服务器,在浏览器里输入对应接口,若成功则会弹出如下结果,我们可以看到服务器已经将数据库中的数据成功返回了出来。
 
 ![](/images/posts/vue/15.png)
 
 ### 3.编写前端静态页面
 
-* 当然啦,萌萌哒的用户不可能聪明到每个请求都到浏览器中手动输入接口,所以我们还需要给一个静态页面让用户可以点击后进行相关访问和操作。在这里我们以表单为例,编写一个静态页面。
+- 当然啦,萌萌哒的用户不可能聪明到每个请求都到浏览器中手动输入接口,所以我们还需要给一个静态页面让用户可以点击后进行相关访问和操作。在这里我们以表单为例,编写一个静态页面。
 
-* 首先,我们在express的静态资源托管文件夹pubilc中创建一个testDB.html文件,并指定数据访问的地址。然后在服务器中访问该页面,点击提交,OK!和在浏览器直接访问的效果是一样的。
+- 首先,我们在 express 的静态资源托管文件夹 pubilc 中创建一个 testDB.html 文件,并指定数据访问的地址。然后在服务器中访问该页面,点击提交,OK!和在浏览器直接访问的效果是一样的。
 
 ![](/images/posts/vue/16.png)
 
-* 至此,我们连接上数据库后的后台访问接口的逻辑就算打通啦！下一章我们将介绍如何使用Vue作为前端向后台请求和发送数据。
-
+- 至此,我们连接上数据库后的后台访问接口的逻辑就算打通啦！下一章我们将介绍如何使用 Vue 作为前端向后台请求和发送数据。
 
 转载请注明原地址，房东惠的博客：[http://myPirlo.github.io](http://myPirlo.github.io) 谢谢！
