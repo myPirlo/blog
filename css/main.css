@@ -341,7 +341,7 @@ img::-moz-selection {
   }
 
   .excerpt {
-    border-left: 3px solid #458B74; 
+    border-left: 3px solid orange; 
     margin: 0;
     margin-right: 10px;
     font-size: 15px;
