@@ -148,7 +148,9 @@ p {
 }
 
 strong {
-  font-weight: bold; }
+  font-weight: bold; 
+  color: coral;
+}
 
 em {
   font-style: italic; }
