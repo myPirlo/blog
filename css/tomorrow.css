@@ -45,7 +45,7 @@
 .hljs-header,
 .ruby .hljs-symbol,
 .xml .hljs-cdata {
-  color: #718c00;
+  color: #DCDCAA;
 }
 
 /* Tomorrow Aqua */
@@ -63,7 +63,7 @@
 .perl .hljs-sub,
 .javascript .hljs-title,
 .coffeescript .hljs-title {
-  color: #4271ae;
+  color: #569CD6;
 }
 
 /* Tomorrow Purple */
@@ -76,9 +76,10 @@
   display: block;
   overflow-x: auto;
   /*background: white;*/
-  color: #4d4d4c;
-  padding: 0.5em;
+  color: #9CDCFE;
   -webkit-text-size-adjust: none;
+  font-size: 20px;
+  line-height: 28px;
 }
 
 .coffeescript .javascript,
