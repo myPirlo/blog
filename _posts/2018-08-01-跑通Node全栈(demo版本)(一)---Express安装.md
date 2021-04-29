@@ -41,5 +41,3 @@ tag: Vue2
   ![](/images/posts/vue/03.png)
 
 - 到此为止,express 后台环境搭建完毕
-
-转载请注明原地址，房东惠的博客：[http://myPirlo.github.io](http://myPirlo.github.io) 谢谢！

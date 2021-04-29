@@ -129,5 +129,3 @@ tag: Vue2
 ![](/images/posts/vue/16.png)
 
 - 至此,我们连接上数据库后的后台访问接口的逻辑就算打通啦！下一章我们将介绍如何使用 Vue 作为前端向后台请求和发送数据。
-
-转载请注明原地址，房东惠的博客：[http://myPirlo.github.io](http://myPirlo.github.io) 谢谢！

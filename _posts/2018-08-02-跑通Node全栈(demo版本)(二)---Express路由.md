@@ -37,5 +37,3 @@ tag: Vue2
 ![](/images/posts/vue/13.png)
 
 - 本章我们简单介绍了一下路由的基础配置,以后我们就可以按照这种格式编写其他业务逻辑的路由啦。
-
-转载请注明原地址，房东惠的博客：[http://myPirlo.github.io](http://myPirlo.github.io) 谢谢！

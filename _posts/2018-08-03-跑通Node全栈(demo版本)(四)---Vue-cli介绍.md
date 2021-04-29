@@ -107,5 +107,3 @@ tag: Vue2
   这里定义了路径为'/'的路由，该路由对应的页面是 Hello 组件，所以当我们在浏览器 url 访问 http://localhost:8080/#/时就渲染的 Hello 组件
 
   类似的，我们可以设置多个路由，‘/index’,'/list'之类的，当然首先得引入该组件，再为该组件设置路由。
-
-转载请注明原地址，房东惠的博客：[http://myPirlo.github.io](http://myPirlo.github.io) 谢谢！
