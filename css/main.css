@@ -391,11 +391,9 @@ img::-moz-selection {
     margin-left: 30%; }
 
   .content-wrapper__inner {
-    /*margin: 0 10%;*/
     margin-right: 60px;
     padding: 50px 0; 
-    /*margin: 0 auto; */
-    /*width: 700px;*/
+    font-size: 16px;
   }
 
   .footer {
@@ -732,12 +730,12 @@ img::-moz-selection {
     position: relative;
     width: 100%;
     border-color: #666;
-    color: #666;
+    color: #eee;
     /*opacity: .8; */
   }
 
   .navigation__item a:hover {
-    color: olive;
+    color: yellowgreen;
   }
 
   .navigation__item_social {
