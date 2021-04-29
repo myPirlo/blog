@@ -348,6 +348,7 @@ img::-moz-selection {
     text-indent: 10px;
     color: #4F4F4F; 
     margin-bottom: 15px;
+    padding-left: 20px;
   }
 
   .intro {
